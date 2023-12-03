@@ -1,0 +1,33 @@
+﻿@model ProductViewModel
+
+<h2>Create Product</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="HangHoa.TenHang">Product Name</label>
+        <input asp-for="HangHoa.TenHang" class="form-control" />
+        <span asp-validation-for="HangHoa.TenHang" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="HangHoa.Gia">Price</label>
+        <input asp-for="HangHoa.Gia" class="form-control" />
+        <span asp-validation-for="@Model.HangHoa.Gia" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="HangHoa.MaLoai">Category</label>
+        <select asp-for="HangHoa.MaLoai" asp-items="@Model.LoaiHangs" class="form-select">
+            <option disabled selected>--Select Category--</option>
+        </select>
+        <span asp-validation-for="HangHoa.MaLoai" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="HangHoa.Anh">Image URL</label>
+        <input asp-for="HangHoa.Anh" class="form-control" />
+        <span asp-validation-for="HangHoa.Anh" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
